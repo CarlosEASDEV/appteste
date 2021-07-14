@@ -1,0 +1,27 @@
+.caixa-busca{
+    margin-bottom: 2em;
+}
+
+.busca{
+    background-color: #3c77df;
+    border-radius: 3em;
+}
+
+.texto-busca{
+    margin: 1em;
+    color:  white;
+}
+a {
+    text-decoration: none;
+    color :ceaeff;
+    font-weight: bold;
+}
+
+.titulo-card{
+    width: fit-content;
+}
+
+.card-hotel{
+    background-color: rgb(243, 243, 236);
+    padding: 0.5em;
+}

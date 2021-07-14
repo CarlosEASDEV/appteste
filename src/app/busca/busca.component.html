@@ -1,0 +1,77 @@
+
+<div class="container">
+  <div class="content" role="main">
+    
+      <div class="mb-3  busca">
+        <div class="row">
+          <div class="col">
+            
+          </div>
+          <div class="col text-center texto-busca">
+            <h1><label for="search-text">Hotéis</label></h1>
+          </div>
+          <div class="col">
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            
+          </div>
+
+          <div class="col">
+            <input type="search" class="form-control caixa-busca rounded-pill form-control-lg" id="search-text" aria-describedby="search-text" 
+            [(ngModel)]="searchText" placeholder="Buscar..." 
+            autofocus>
+          </div>
+          <div class="col">
+            
+          </div>
+
+        </div>
+      </div>
+      
+      <ul class="list-group list-group-flush">
+        <!-- results of ngFor is passed to appFilter with argument searchText -->
+        <li class="list-group-item" *ngFor="let c of hoteis | appFilter: searchText">
+          <div class="card text-dark card-hotel">
+            <div class="row">
+              <div class="col"><span class="titulo-card"><h5 class="card-title">{{c.nome}}</h5></span></div>
+              <div class="col"><a href="#" *ngIf="exibeDetalhes(c.id)" (click)="ocultarDetalhes(c.id)" class="card-link btn-link float-end">Ocultar detalhes da ação</a><a href="#" (click)="mostraDetalhes(c.id)" *ngIf="!exibeDetalhes(c.id)" class="card-link btn-link float-end">Ver detalhe da ação</a></div>
+            </div>
+  
+            <div class="card-body">
+              <div class="detalhe" *ngIf="exibeDetalhes(c.id)"> 
+                <p class="card-text">{{c.descricao}}</p> 
+                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalVerMais">VER MAIS</button> 
+              </div>
+            </div>
+          </div>
+          
+        </li>
+      </ul>
+    
+
+
+  </div>
+</div>
+
+                <!--Modal vermais-->
+                <div id="modalVerMais" class="modal" tabindex="-1">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Ver mais</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Tem certeza que deseja ir para a tela?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Não</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Sim</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
